@@ -1,0 +1,15 @@
+[user]
+    name = Jesse Widner
+    email = jesse@widner.xyz
+[alias]
+    lol = log --graph --oneline --decorate --color --all
+    co = checkout
+    ci = commit
+    st = status
+    dt = difftool
+    l = log --stat
+    cp = cherry-pick
+    ca = commit -a
+    b = branch
+[init]
+    defaultBranch = main
