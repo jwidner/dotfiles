@@ -1,3 +1,6 @@
+# subcommands
+
+# general options
 complete -c chezmoi -l color --no-files -a "auto yes no" --description "colorize diffs (default auto)"
 complete -c chezmoi -s c -l config --description "config file (default /home/jesse/.config/chezmoi/chezmoi.toml)"
 complete -c chezmoi -l cpu-profile --description "write CPU profile"
