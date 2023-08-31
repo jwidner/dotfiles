@@ -1,6 +1,5 @@
 [user]
     name = Jesse Widner
-    email = {{ .email }}
 [alias]
     lol = log --graph --oneline --decorate --color --all
     co = checkout
