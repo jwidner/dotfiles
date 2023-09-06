@@ -10,6 +10,12 @@ cp "$SCRIPT_DIR/.vimrc" "$HOME/.vimrc"
 
 # TODO: Neovim setup
 
+# TODO: tmux setup
+cp "$SCRIPT_DIR/.tmux.conf" "$HOME/.tmux.conf"
+TMUX_DIR="$HOME/.tmux"
+mkdir -p "$TMUX_DIR/tmux-resurrect"
+git clone https://github.com/tmux-plugins/tmux-resurrect "$TMUX_DIR/tmux-resurrect"
+
 # TODO: bash setup
 
 . "$HOME/.bashrc"
