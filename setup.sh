@@ -5,7 +5,7 @@ SCRIPT_DIR=""  # TODO
 # Vim setup
 # TODO: 0. setup the dirs
 # TODO: 1. move the config files
-cp "SCRIPT_DIR/.vimrc"
+cp "$SCRIPT_DIR/.vimrc" "$HOME/.vimrc"
 # TODO: 2. clone the plugins
 
 # TODO: Neovim setup
