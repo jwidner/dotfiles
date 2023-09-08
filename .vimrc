@@ -24,7 +24,6 @@ let mapleader = "\<Space>"
 let maplocalleader = "\\"
 
 " toggles buffers
-nnoremap <Leader><Leader> <c-^>
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>t :Tags<CR>
