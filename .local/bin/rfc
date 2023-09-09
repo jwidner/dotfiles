@@ -1,0 +1,14 @@
+#!/bin/bash
+set -euo pipefail
+if [ -z "$PAGER" ]; then
+    PAGER=less
+fi
+if [ "$#" -eq 0 ]; then
+    echo "${0##*/} requires the rfc number as its first argument"
+# elif ! command -v pandoc &>/dev/null; then
+#     echo "${0##*/} needs pandoc to work"
+else
+    # curl "https://www.rfc-editor.org/rfc/rfc${1}.txt" | less
+    # use tr to delete  (octal 014) characters in the output
+    curl "https://www.ietf.org/rfc/rfc${1}.txt" | tr -d '\14' | $PAGER
+fi

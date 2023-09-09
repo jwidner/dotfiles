@@ -48,3 +48,7 @@ GLOBAL_GIT_CONFIG="$HOME/.config/git"
 mkdir -p "$GLOBAL_GIT_CONFIG"
 # TODO: add global git ignore file and use instead of below
 echo '/tags' >"$GLOBAL_GIT_CONFIG/ignore"
+
+# local scripts
+mkdir -p "$HOME/.local/bin"
+cp "$SCRIPT_DIR/.local/bin"/* "$HOME/.local/bin"

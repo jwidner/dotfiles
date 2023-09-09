@@ -1,0 +1,16 @@
+#/bin/bash
+# TODO:
+# # 1. Figure out which manual section the page is in (if any)
+# # 2. Do caching
+# # man9() {
+# #     curl "http://man.cat-v.org/plan_9/1/$1" | pandoc --from html --to plain
+# | grep -B2 -A999999 '^ *NAME$' | $PAGER
+# # }
+#
+set -euo pipefail
+for section in $(seq 1 9); do
+    result=$(curl -s "http://man.cat-v.org/plan_9/$section/$1" | pandoc --from html --to plain | grep -B2 -A999999 '^ *NAME$' || true)
+    if [ "$result" ]; then
+        echo "$result" | $PAGER
+    fi
+done
