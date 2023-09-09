@@ -13,17 +13,30 @@ cp "$SCRIPT_DIR/.vimrc" "$HOME/.vimrc"
 PLUGIN_DIR="$HOME/.vim/pack"
 # vim-commentary
 mkdir -p "$PLUGIN_DIR/tpope/start"
-git clone https://tpope.io/vim/commentary.git "$PLUGIN_DIR/tpope/start/commentary"
+if [ ! -e "$PLUGIN_DIR/tpope/start/commentary" ]; then
+    git clone https://tpope.io/vim/commentary.git "$PLUGIN_DIR/tpope/start/commentary"
+else
+    echo "INFO: skipping vim-commentary because it already exists..."
+fi
 vim -u NONE -c "helptags $PLUGIN_DIR/tpope/start/commentary/doc" -c q
 # vim-fugitive
-git clone https://tpope.io/vim/fugitive.git "$PLUGIN_DIR/tpope/start/fugitive"
+mkdir -p "$PLUGIN_DIR/tpope/start"
+if [ ! -e "$PLUGIN_DIR/tpope/start/fugitive" ]; then
+    git clone https://tpope.io/vim/fugitive.git "$PLUGIN_DIR/tpope/start/fugitive"
+else
+    echo "INFO: skipping vim-fugitive because it already exists..."
+fi
 vim -u NONE -c "helptags $PLUGIN_DIR/tpope/start/fugitive/doc" -c q
 
 # tmux setup
 cp "$SCRIPT_DIR/.tmux.conf" "$HOME/.tmux.conf"
 TMUX_DIR="$HOME/.tmux"
-mkdir -p "$TMUX_DIR/tmux-resurrect"
-git clone https://github.com/tmux-plugins/tmux-resurrect "$TMUX_DIR/tmux-resurrect"
+mkdir -p "$TMUX_DIR"
+if [ ! -e "$TMUX_DIR/tmux-resurrect" ]; then
+    git clone https://github.com/tmux-plugins/tmux-resurrect "$TMUX_DIR/tmux-resurrect"
+else
+    echo "INFO: skipping tmux-resurrect because it already exists..."
+fi
 
 # bash setup
 cp "$SCRIPT_DIR/.bashrc" "$HOME/.bashrc"
