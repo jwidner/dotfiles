@@ -8,6 +8,13 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+if [ "$(uname)" = 'Linux' ]; then
+    alias open='xdg-open'
+elif [ "$(uname)" = 'Darwin' ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    export PATH="$PATH:/opt/homebrew/opt/coreutils/libexec/gnubin"
+fi
+
 # Define some colors
 red=$(tput setaf 196)
 green=$(tput setaf 2)
@@ -176,9 +183,6 @@ config () {
         $EDITOR "$DOT_FILES/.bashrc"
     fi
 }
-if [ "$(uname)" = 'Linux' ]; then
-    alias open='xdg-open'
-fi
 alias hist='command history'
 alias diff='command diff --color'
 alias cv='config vim'
