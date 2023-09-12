@@ -27,6 +27,13 @@ else
     echo "INFO: skipping vim-fugitive because it already exists..."
 fi
 vim -u NONE -c "helptags $PLUGIN_DIR/tpope/start/fugitive/doc" -c q
+# gruvbox
+mkdir -p "$PLUGIN_DIR/default/start"
+if [ ! -e "$PLUGIN_DIR/default/start/gruvbox" ]; then
+    git clone https://github.com/morhetz/gruvbox.git "$PLUGIN_DIR/default/start/gruvbox"
+else
+    echo "INFO: skipping gruvbox because it already exists..."
+fi
 
 # tmux setup
 cp "$SCRIPT_DIR/.tmux.conf" "$HOME/.tmux.conf"
