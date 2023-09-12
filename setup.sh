@@ -47,6 +47,7 @@ fi
 
 # bash setup
 cp "$SCRIPT_DIR/.bashrc" "$HOME/.bashrc"
+cp "$SCRIPT_DIR/.bash_profile" "$HOME/.bash_profile"
 . "$HOME/.bashrc"
 
 # Git setup
