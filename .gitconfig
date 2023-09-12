@@ -10,5 +10,6 @@
     cp = cherry-pick
     ca = commit -a
     b = branch
+    sw = switch
 [init]
     defaultBranch = main
