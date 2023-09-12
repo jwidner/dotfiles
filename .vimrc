@@ -1,4 +1,5 @@
-source "$VIMRUNTIME/defaults.vim"
+unlet! skip_defaults_vim
+runtime defaults.vim
 
 set nocompatible
 set hidden  " switch buffers without saving
