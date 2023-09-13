@@ -115,7 +115,7 @@ note () {
     elif [ "$1" = "edit" ]; then
         $EDITOR "$NOTES_FILE"
     else 
-        echo "$(date --iso-8601=seconds) >>" "$@" >>"$NOTES_FILE"
+        echo "$(date -Iseconds) >>" "$@" >>"$NOTES_FILE"
     fi
 }
 
@@ -128,7 +128,7 @@ todo () {
     elif [ "$1" = "edit" ]; then
         $EDITOR "$TODO_FILE"
     else
-        echo "$(date --iso-8601=seconds) >>" "$@" >>"$TODO_FILE"
+        echo "$(date -Iseconds) >>" "$@" >>"$TODO_FILE"
     fi
 }
 
