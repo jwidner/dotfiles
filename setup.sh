@@ -9,8 +9,10 @@ mkdir -p \
     "$HOME/.vim/backup"
 find "$HOME/.vim" -type d -exec chmod 700 '{}' \;
 cp "$SCRIPT_DIR/.vimrc" "$HOME/.vimrc"
-# plugins
+
+# vim plugins
 PLUGIN_DIR="$HOME/.vim/pack"
+
 # vim-commentary
 mkdir -p "$PLUGIN_DIR/tpope/start"
 if [ ! -e "$PLUGIN_DIR/tpope/start/commentary" ]; then
@@ -19,6 +21,7 @@ else
     echo "INFO: skipping vim-commentary because it already exists..."
 fi
 vim -u NONE -c "helptags $PLUGIN_DIR/tpope/start/commentary/doc" -c q
+
 # vim-fugitive
 mkdir -p "$PLUGIN_DIR/tpope/start"
 if [ ! -e "$PLUGIN_DIR/tpope/start/fugitive" ]; then
@@ -27,6 +30,20 @@ else
     echo "INFO: skipping vim-fugitive because it already exists..."
 fi
 vim -u NONE -c "helptags $PLUGIN_DIR/tpope/start/fugitive/doc" -c q
+
+# vim-fzf
+mkdir -p "$PLUGIN_DIR/packages/start"
+if [ ! -e "$PLUGIN_DIR/packages/start/fzf" ]; then
+    git clone https://github.com/junegunn/fzf.git "$PLUGIN_DIR/packages/start/fzf"
+else
+    echo "INFO: skipping fzf because it already exists..."
+fi
+if [ ! -e "$PLUGIN_DIR/packages/start/fzf.vim" ]; then
+    git clone https://github.com/junegunn/fzf.vim.git "$PLUGIN_DIR/packages/start/fzf.vim"
+else
+    echo "INFO: skipping fzf.vim because it already exists..."
+fi
+
 # gruvbox
 mkdir -p "$PLUGIN_DIR/default/start"
 if [ ! -e "$PLUGIN_DIR/default/start/gruvbox" ]; then
