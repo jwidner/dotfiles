@@ -85,6 +85,7 @@ stty -ixon
 
 [ -f /usr/share/fzf/shell/key-bindings.bash ] && . /usr/share/fzf/shell/key-bindings.bash
 [ -f ~/.fzf.bash ] && . ~/.fzf.bash
+export FZF_DEFAULT_COMMAND="find . -type f ! -path '*/.git/*'"
 
 # setup golang
 export GOPATH=$HOME/go
