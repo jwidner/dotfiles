@@ -10,9 +10,11 @@ fi
 
 if [ "$(uname)" = 'Linux' ]; then
     alias open='xdg-open'
+    export BROWSER='firefox'
 elif [ "$(uname)" = 'Darwin' ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
     export PATH="$PATH:/opt/homebrew/opt/coreutils/libexec/gnubin"
+    export BROWSER='open -a firefox'
 fi
 
 # Define some colors
@@ -29,8 +31,6 @@ export HISTFILESIZE=unlimited
 HISTTIMEFORMAT="%FT%T%z "
 
 shopt -s histappend
-
-export BROWSER='firefox'
 
 # vim setup
 if command -v vimx >/dev/null; then
