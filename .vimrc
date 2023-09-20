@@ -31,7 +31,6 @@ nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>t :Tags<CR>
 nnoremap <Leader>? :History<CR>
 nnoremap <Leader>s :Rg<CR>
-nnoremap <Leader>v :vsplit<CR>
 
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
