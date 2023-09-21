@@ -14,6 +14,8 @@ if [ "$(uname)" = 'Linux' ]; then
 elif [ "$(uname)" = 'Darwin' ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
     export PATH="$PATH:/opt/homebrew/opt/coreutils/libexec/gnubin"
+    # replace BSD sed with GNU sed
+    export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
     export BROWSER='open -a firefox'
 fi
 
