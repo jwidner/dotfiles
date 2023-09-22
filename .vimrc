@@ -20,7 +20,11 @@ set number relativenumber
 set scrolloff=0  " no margins/padding when scrolling
 set shortmess-=S  " display search match count [1/n]
 
-set clipboard=unnamedplus
+if system('uname -s') == "Darwin\n"
+  set clipboard=unnamed "OSX
+else
+  set clipboard=unnamedplus "Linux
+endif
 
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
