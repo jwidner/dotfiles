@@ -59,6 +59,11 @@ nnoremap <silent><esc> :noh<CR><esc>
 " buffer next/prev
 nnoremap <silent>]b :bnext<CR>
 nnoremap <silent>[b :bprevious<CR>
+" quickfix next/prev
+nnoremap <silent>[q :cprevious<CR>
+nnoremap <silent>]q :cnext<CR>
+nnoremap <silent>[Q :cfirst<CR>
+nnoremap <silent>]Q :clast<CR>
 
 if &t_Co > 2 || has("gui_running")
   set hlsearch
