@@ -18,7 +18,7 @@ mkdir -p "${PLUGIN_DIR}/tpope/start"
 if [ ! -e "${PLUGIN_DIR}/tpope/start/commentary" ]; then
     git clone 'https://tpope.io/vim/commentary.git' "${PLUGIN_DIR}/tpope/start/commentary"
 else
-    echo "INFO: updating existing vim-commentary..." >&2
+    echo >&2 "INFO: updating existing vim-commentary..."
     cd "${PLUGIN_DIR}/tpope/start/commentary"
     git pull --ff-only
 fi
@@ -29,7 +29,7 @@ mkdir -p "${PLUGIN_DIR}/tpope/start"
 if [ ! -e "${PLUGIN_DIR}/tpope/start/fugitive" ]; then
     git clone 'https://tpope.io/vim/fugitive.git' "${PLUGIN_DIR}/tpope/start/fugitive"
 else
-    echo "INFO: updating existing vim-fugitive..." >&2
+    echo >&2 "INFO: updating existing vim-fugitive..."
     cd "${PLUGIN_DIR}/tpope/start/fugitive"
     git pull --ff-only
 fi
@@ -40,14 +40,14 @@ mkdir -p "${PLUGIN_DIR}/packages/start"
 if [ ! -e "${PLUGIN_DIR}/packages/start/fzf" ]; then
     git clone 'https://github.com/junegunn/fzf.git' "${PLUGIN_DIR}/packages/start/fzf"
 else
-    echo "INFO: updating existing fzf..." >&2
+    echo >&2 "INFO: updating existing fzf..."
     cd "${PLUGIN_DIR}/packages/start/fzf"
     git pull --ff-only
 fi
 if [ ! -e "${PLUGIN_DIR}/packages/start/fzf.vim" ]; then
     git clone 'https://github.com/junegunn/fzf.vim.git' "${PLUGIN_DIR}/packages/start/fzf.vim"
 else
-    echo "INFO: updating existing fzf.vim..." >&2
+    echo >&2 "INFO: updating existing fzf.vim..."
     cd "${PLUGIN_DIR}/packages/start/fzf.vim"
     git pull --ff-only
 fi
@@ -57,7 +57,7 @@ mkdir -p "${PLUGIN_DIR}/default/start"
 if [ ! -e "${PLUGIN_DIR}/default/start/gruvbox" ]; then
     git clone https://github.com/morhetz/gruvbox.git "${PLUGIN_DIR}/default/start/gruvbox"
 else
-    echo "INFO: updating existing gruvbox..." >&2
+    echo >&2 "INFO: updating existing gruvbox..."
     cd "${PLUGIN_DIR}/default/start/gruvbox"
     git pull --ff-only
 fi
@@ -69,7 +69,7 @@ mkdir -p "${TMUX_DIR}"
 if [ ! -e "${TMUX_DIR}/tmux-resurrect" ]; then
     git clone https://github.com/tmux-plugins/tmux-resurrect "${TMUX_DIR}/tmux-resurrect"
 else
-    echo "INFO: updating existing tmux-resurrect..." >&2
+    echo >&2 "INFO: updating existing tmux-resurrect..."
     cd "${TMUX_DIR}/tmux-resurrect"
     git pull --ff-only
 fi
