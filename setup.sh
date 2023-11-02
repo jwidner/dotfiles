@@ -77,7 +77,6 @@ fi
 # bash setup
 cp "${SCRIPT_DIR}/.bashrc" "${HOME}/.bashrc"
 cp "${SCRIPT_DIR}/.bash_profile" "${HOME}/.bash_profile"
-. "${HOME}/.bashrc"
 
 # Git setup
 cp "${SCRIPT_DIR}/.gitconfig" "${HOME}/.gitconfig"
@@ -89,3 +88,5 @@ echo '/tags' >"${GLOBAL_GIT_CONFIG}/ignore"
 # local scripts
 mkdir -p "${HOME}/.local/bin"
 cp "${SCRIPT_DIR}/.local/bin"/* "${HOME}/.local/bin"
+
+. "${HOME}/.bashrc"
