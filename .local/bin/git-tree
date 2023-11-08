@@ -1,10 +1,2 @@
 #!/bin/bash
-# Exclude '.git/' and git submodules from tree output.
-SUBMODULES="$(git submodule status | awk '{ print $2 }' | paste -sd '|' -)"
-IGNORE_ARG=".git|.venv"
-if [ -n "${SUBMODULES}" ]; then
-    IGNORE_ARG="${IGNORE_ARG}|${SUBMODULES}"
-fi
-tree \
-    -I "${IGNORE_ARG}" \
-    "$@"
+git ls-files | tree --fromfile . "${@}"
