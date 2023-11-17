@@ -82,8 +82,7 @@ cp "${SCRIPT_DIR}/.bash_profile" "${HOME}/.bash_profile"
 cp "${SCRIPT_DIR}/.gitconfig" "${HOME}/.gitconfig"
 GLOBAL_GIT_CONFIG="${HOME}/.config/git"
 mkdir -p "${GLOBAL_GIT_CONFIG}"
-# TODO: add global git ignore file and use instead of below
-echo '/tags' >"${GLOBAL_GIT_CONFIG}/ignore"
+cp "${SCRIPT_DIR}/ignore" "${GLOBAL_GIT_CONFIG}/ignore"
 
 # local scripts
 mkdir -p "${HOME}/.local/bin"
