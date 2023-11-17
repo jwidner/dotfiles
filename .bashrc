@@ -186,6 +186,7 @@ config () {
         $EDITOR "$DOT_FILES/.bashrc"
     fi
 }
+alias xargs='command xargs '
 alias hist='command history'
 alias diff='command diff --color'
 alias cv='config vim'
