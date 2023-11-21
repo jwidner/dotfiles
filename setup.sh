@@ -62,6 +62,21 @@ else
     git pull --ff-only
 fi
 
+# coc.nvim
+mkdir -p "${PLUGIN_DIR}/coc/start"
+if [ ! -e "${PLUGIN_DIR}/coc/start/coc.nvim" ]; then
+    git clone \
+        --branch release \
+        https://github.com/neoclide/coc.nvim.git \
+        --depth=1 \
+        "${PLUGIN_DIR}/coc/start/coc.nvim"
+else
+    echo >&2 "INFO: updating existing coc.nvim..."
+    cd "${PLUGIN_DIR}/coc/start/coc.nvim"
+    git pull --ff-only
+fi
+vim -u NONE -c "helptags ${PLUGIN_DIR}/coc/start/coc.nvim/doc" -c q
+
 # tmux setup
 cp "${SCRIPT_DIR}/.tmux.conf" "${HOME}/.tmux.conf"
 TMUX_DIR="${HOME}/.tmux"
