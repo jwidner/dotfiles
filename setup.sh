@@ -11,69 +11,39 @@ find "${HOME}/.vim" -type d -exec chmod 700 '{}' \;
 cp "${SCRIPT_DIR}/.vimrc" "${HOME}/.vimrc"
 
 # vim plugins
-PLUGIN_DIR="${HOME}/.vim/pack"
+PLUGIN_BASEDIR="${HOME}/.vim/pack/default/start"
 
-# vim-commentary
-mkdir -p "${PLUGIN_DIR}/tpope/start"
-if [ ! -e "${PLUGIN_DIR}/tpope/start/commentary" ]; then
-    git clone 'https://tpope.io/vim/commentary.git' "${PLUGIN_DIR}/tpope/start/commentary"
-else
-    echo >&2 "INFO: updating existing vim-commentary..."
-    cd "${PLUGIN_DIR}/tpope/start/commentary"
-    git pull --ff-only
-fi
-vim -u NONE -c "helptags ${PLUGIN_DIR}/tpope/start/commentary/doc" -c q
-
-# vim-fugitive
-mkdir -p "${PLUGIN_DIR}/tpope/start"
-if [ ! -e "${PLUGIN_DIR}/tpope/start/fugitive" ]; then
-    git clone 'https://tpope.io/vim/fugitive.git' "${PLUGIN_DIR}/tpope/start/fugitive"
-else
-    echo >&2 "INFO: updating existing vim-fugitive..."
-    cd "${PLUGIN_DIR}/tpope/start/fugitive"
-    git pull --ff-only
-fi
-vim -u NONE -c "helptags ${PLUGIN_DIR}/tpope/start/fugitive/doc" -c q
-
-# vim-fzf
-mkdir -p "${PLUGIN_DIR}/packages/start"
-if [ ! -e "${PLUGIN_DIR}/packages/start/fzf" ]; then
-    git clone 'https://github.com/junegunn/fzf.git' "${PLUGIN_DIR}/packages/start/fzf"
-else
-    echo >&2 "INFO: updating existing fzf..."
-    cd "${PLUGIN_DIR}/packages/start/fzf"
-    git pull --ff-only
-fi
-if [ ! -e "${PLUGIN_DIR}/packages/start/fzf.vim" ]; then
-    git clone 'https://github.com/junegunn/fzf.vim.git' "${PLUGIN_DIR}/packages/start/fzf.vim"
-else
-    echo >&2 "INFO: updating existing fzf.vim..."
-    cd "${PLUGIN_DIR}/packages/start/fzf.vim"
-    git pull --ff-only
-fi
-
-# gruvbox
-mkdir -p "${PLUGIN_DIR}/default/start"
-if [ ! -e "${PLUGIN_DIR}/default/start/gruvbox" ]; then
-    git clone https://github.com/morhetz/gruvbox.git "${PLUGIN_DIR}/default/start/gruvbox"
-else
-    echo >&2 "INFO: updating existing gruvbox..."
-    cd "${PLUGIN_DIR}/default/start/gruvbox"
-    git pull --ff-only
-fi
+for PLUGIN in \
+    "https://tpope.io/vim/commentary.git" \
+    "https://tpope.io/vim/fugitive.git" \
+    "https://github.com/junegunn/fzf.git" \
+    "https://github.com/junegunn/fzf.vim.git" \
+    "https://github.com/morhetz/gruvbox.git"
+do
+    PLUGIN_NAME="${PLUGIN##*/}"
+    PLUGIN_NAME="${PLUGIN_NAME%.git}"
+    PLUGIN_DIR="${PLUGIN_BASEDIR}/${PLUGIN_NAME}"
+    if ! git clone \
+        "${PLUGIN}" \
+        --depth=1 \
+        "${PLUGIN_DIR}"
+    then
+        cd "${PLUGIN_DIR}"
+        git pull --ff-only --depth=1
+    fi
+    vim -u NONE -c "helptags ${PLUGIN_DIR}/doc" -c q
+done
 
 # coc.nvim
-mkdir -p "${PLUGIN_DIR}/coc/start"
-if [ ! -e "${PLUGIN_DIR}/coc/start/coc.nvim" ]; then
-    git clone \
-        --branch release \
-        https://github.com/neoclide/coc.nvim.git \
-        --depth=1 \
-        "${PLUGIN_DIR}/coc/start/coc.nvim"
-else
-    echo >&2 "INFO: updating existing coc.nvim..."
-    cd "${PLUGIN_DIR}/coc/start/coc.nvim"
-    git pull --ff-only
+PLUGIN_DIR="${PLUGIN_BASEDIR}/coc"
+if ! git clone \
+    --branch release \
+    https://github.com/neoclide/coc.nvim.git \
+    --depth=1 \
+    "${PLUGIN_DIR}"
+then
+    cd "${PLUGIN_DIR}"
+    git pull --ff-only --depth=1
 fi
 vim -u NONE -c "helptags ${PLUGIN_DIR}/coc/start/coc.nvim/doc" -c q
 
