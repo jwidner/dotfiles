@@ -45,7 +45,7 @@ then
     cd "${PLUGIN_DIR}"
     git pull --ff-only --depth=1
 fi
-vim -u NONE -c "helptags ${PLUGIN_DIR}/coc/start/coc.nvim/doc" -c q
+vim -u NONE -c "helptags ${PLUGIN_DIR}/doc" -c q
 
 # tmux setup
 cp "${SCRIPT_DIR}/.tmux.conf" "${HOME}/.tmux.conf"
