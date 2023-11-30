@@ -17,6 +17,12 @@ elif [ "$(uname)" = 'Darwin' ]; then
     # replace BSD sed with GNU sed
     export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
     export BROWSER='open -a firefox'
+    GIT_COMPLETION_PATH="/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash"
+    if [ -f "${GIT_COMPLETION_PATH}" ]; then
+        . "${GIT_COMPLETION_PATH}"
+    else
+        echo >&2 "WARN: git completion script is missing"
+    fi
 fi
 
 # Define some colors
