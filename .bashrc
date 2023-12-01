@@ -9,7 +9,8 @@ if [ -f /etc/bashrc ]; then
 fi
 
 if [ "$(uname)" = 'Linux' ]; then
-    alias open='xdg-open'
+    open() { xdg-open "${@}"; }
+    export -f open
     export BROWSER='firefox'
 elif [ "$(uname)" = 'Darwin' ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"

@@ -1,0 +1,6 @@
+#!/bin/bash
+URL=$(git remote --verbose \
+    | head -1 \
+    | tr ':' '/' \
+    | sed -En 's|.*git@(.*)\.git.*|https://\1|p')
+open "${URL}"
