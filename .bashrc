@@ -120,25 +120,26 @@ export NOTES_FILE="$HOME/.notes"
 # this seems to me to be the best solution. It's better (to me) than writing my
 # notes in the shell itself.
 note () {
-    if [ "$#" = "0" ]; then
-        tail "$NOTES_FILE"
-    elif [ "$1" = "edit" ]; then
-        $EDITOR "$NOTES_FILE"
-    else 
-        echo "$(date -Iseconds) >>" "$@" >>"$NOTES_FILE"
-    fi
+    _note_file "${NOTES_FILE}" "${@}"
 }
 
-# TODO: abstract the note() and todo() functions
 export TODO_FILE="$HOME/.todo"
 [ ! -e "TODO_FILE" ] && touch "$TODO_FILE"
 todo () {
+    _note_file "${TODO_FILE}" "${@}"
+}
+
+# Abstracts functionality for viewing, editing, & appending to a notes file
+# Usage: _note_file FILE "$@"
+_note_file () {
+    local FILE="$1"
+    shift
     if [ "$#" = "0" ]; then
-        tail "$TODO_FILE"
+        tail "$FILE"
     elif [ "$1" = "edit" ]; then
-        $EDITOR "$TODO_FILE"
+        "$EDITOR" "$FILE"
     else
-        echo "$(date -Iseconds) >>" "$@" >>"$TODO_FILE"
+        echo "$(date -Iseconds) >>" "$@" >>"$FILE"
     fi
 }
 
