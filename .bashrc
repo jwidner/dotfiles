@@ -17,6 +17,8 @@ elif [ "$(uname)" = 'Darwin' ]; then
     export PATH="$PATH:/opt/homebrew/opt/coreutils/libexec/gnubin"
     # replace BSD sed with GNU sed
     export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+    # python -> python3, pip -> pip3, etc.
+    export PATH="/opt/homebrew/opt/python3/libexec/bin:$PATH"
     export BROWSER='open -a firefox'
     GIT_COMPLETION_PATH="/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash"
     if [ -f "${GIT_COMPLETION_PATH}" ]; then
