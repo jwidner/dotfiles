@@ -1,0 +1,25 @@
+#!/bin/sh
+DISCORD_TARGZ_PATH=$(mktemp --suffix="-discord.tar.gz")
+DISCORD_BIN_PATH="$(dirname "${DISCORD_TARGZ_PATH}")/Discord/Discord"
+
+if ! wget \
+    -O "${DISCORD_TARGZ_PATH}" \
+    "https://discord.com/api/download/stable?platform=linux&format=tar.gz"
+then
+    echo >&2 "$0: error downloading discord archive; RC=$?"
+    exit 1
+fi
+
+if ! tar -xf "${DISCORD_TARGZ_PATH}" \
+    -C "$(dirname "${DISCORD_TARGZ_PATH}")"
+then
+    echo >&2 "$0: error extracting discord archive; RC=$?"
+    exit 2
+fi
+
+if ! rm "${DISCORD_TARGZ_PATH}"
+then
+    echo >&2 "$0: error cleaning up discord archive \"${DISCORD_TARGZ_PATH}\"; RC=$?"
+fi
+
+nohup "${DISCORD_BIN_PATH}" &
