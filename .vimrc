@@ -7,8 +7,7 @@ if version >= 600
   filetype plugin indent on
 endif
 
-" TODO: if gruvbox is not available, use slate
-autocmd vimenter * ++nested colorscheme gruvbox
+colorscheme gruvbox  " TODO: if gruvbox is not available, use slate
 set background=dark
 set tw=79  " TODO: should come up with something better...
 
