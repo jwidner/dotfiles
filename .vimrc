@@ -22,6 +22,8 @@ set shortmess-=S  " display search match count [1/n]
 
 if system('uname -s') == "Darwin\n"
   set clipboard=unnamed "OSX
+  set background=light
+  colorscheme solarized
 else
   set clipboard=unnamedplus "Linux
 endif
