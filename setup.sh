@@ -3,7 +3,7 @@ set -eu
 SCRIPT_DIR="${HOME}/dotfiles"
 
 # Vim setup
-cp -R "${SCRIPT_DIR}/vim/" "${HOME}/.vim"
+cp -R "${SCRIPT_DIR}/vim/." "${HOME}/.vim"
 mkdir -p \
     "${HOME}/.vim/swap" \
     "${HOME}/.vim/undo" \
