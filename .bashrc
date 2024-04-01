@@ -26,9 +26,11 @@ elif [ "$(uname)" = 'Darwin' ]; then
     else
         echo >&2 "WARN: git completion script is missing"
     fi
-    export DFT_BACKGROUND=light
-    export HIGHLIGHT_STYLE="solarized-light"
 fi
+
+# solarized setup
+export DFT_BACKGROUND=light
+export HIGHLIGHT_STYLE="solarized-light"
 
 # Define some colors
 red=$(tput setaf 196)

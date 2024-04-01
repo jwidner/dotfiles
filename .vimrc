@@ -7,8 +7,8 @@ if version >= 600
   filetype plugin indent on
 endif
 
-colorscheme gruvbox  " TODO: if gruvbox is not available, use slate
-set background=dark
+set background=light
+colorscheme solarized
 set tw=79  " TODO: should come up with something better...
 
 let g:slime_target = "vimterminal"
@@ -21,8 +21,6 @@ set shortmess-=S  " display search match count [1/n]
 
 if system('uname -s') == "Darwin\n"
   set clipboard=unnamed "OSX
-  set background=light
-  colorscheme solarized
 else
   set clipboard=unnamedplus "Linux
 endif
