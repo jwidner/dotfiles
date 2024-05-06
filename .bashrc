@@ -117,7 +117,8 @@ export PATH="$PATH:$HOME/zig"
 
 # setup pyenv
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # home/bin
 export PATH="$HOME/bin:$PATH"
