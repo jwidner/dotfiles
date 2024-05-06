@@ -100,7 +100,16 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-PS1='[\[$red\]\u\[$reset\]@\[$green\]\h \[$blue\]\W\[$reset\]]\$ '
+current_branch() {
+    if ! branch=$(git branch --show-current \
+                             --no-color 2>/dev/null); then
+        return 0
+    fi
+    branch=$(echo "$branch" | sed -E 's/(.{8}).*/\1.../')
+    echo " $yellow$branch$reset"
+}
+
+PS1='[\[$red\]\u\[$reset\]@\[$green\]\h \[$blue\]\W$(current_branch)\[$reset\]]\$ '
 stty -ixon
 
 [ -f /usr/share/fzf/shell/key-bindings.bash ] && . /usr/share/fzf/shell/key-bindings.bash
