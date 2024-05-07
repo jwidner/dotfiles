@@ -102,7 +102,8 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 current_branch() {
     if ! branch=$(git branch --show-current \
-                             --no-color 2>/dev/null); then
+                             --no-color 2>/dev/null) \
+        || [ -z "${branch}" ]; then
         return 0
     fi
     branch=$(echo "$branch" | sed -E 's/(.{8}).*/\1.../')
