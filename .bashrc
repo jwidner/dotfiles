@@ -106,10 +106,10 @@ current_branch() {
         return 0
     fi
     branch=$(echo "$branch" | sed -E 's/(.{8}).*/\1.../')
-    echo " $yellow$branch$reset"
+    echo " $branch"
 }
 
-PS1='[\[$red\]\u\[$reset\]@\[$green\]\h \[$blue\]\W$(current_branch)\[$reset\]]\$ '
+PS1='[\[$red\]\u\[$reset\]@\[$green\]\h \[$blue\]\W\[$yellow\]$(current_branch)\[$reset\]]\$ '
 stty -ixon
 
 [ -f /usr/share/fzf/shell/key-bindings.bash ] && . /usr/share/fzf/shell/key-bindings.bash
