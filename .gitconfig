@@ -1,5 +1,7 @@
 [user]
     name = Jesse Widner
+[include]
+    path = ~/.gitconfig.local
 [alias]
     lol = log --graph --oneline --decorate --color --all
     co = checkout
