@@ -2,6 +2,7 @@
 set -eu
 
 # Vim setup
+rm -rf "${HOME}/.vim/pack"
 mkdir -p \
     "${HOME}/.vim/swap" \
     "${HOME}/.vim/undo" \
