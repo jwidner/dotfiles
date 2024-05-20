@@ -65,6 +65,7 @@ alias vim="command $EDITOR"
 
 # less/man settings
 export LESS+='-M'
+export LESS+='-Q'  # turn off bell
 export MANPAGER='less +Gg'
 export PAGER='less +Gg -R'
 export GROFF_NO_SGR=1
