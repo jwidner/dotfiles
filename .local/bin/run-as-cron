@@ -1,0 +1,9 @@
+#!/bin/sh
+# Usage: run-as-cron <cron-env-file> <command>
+# Hint: create env file by temporarily putting the following in crontab:
+# * * * * *  /usr/bin/env >"${HOME}/cron-env"
+
+# Taken from: <https://serverfault.com/a/541368> with small modification(s)
+
+. "$1"
+exec /usr/bin/env -i "$SHELL" -c ". $1; $2"
