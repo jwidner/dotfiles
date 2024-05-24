@@ -4,6 +4,16 @@
 # * * * * *  /usr/bin/env >"${HOME}/cron-env"
 
 # Taken from: <https://serverfault.com/a/541368> with small modification(s)
+PROG=$(basename "$0")
+
+usage() {
+    echo "Usage: ${PROG} <cron-env-file> <command>"
+}
+
+if [ "$#" -ne 2 ]; then
+    usage >&2
+    exit 1
+fi
 
 . "$1"
 exec /usr/bin/env -i "$SHELL" -c ". $1; $2"
