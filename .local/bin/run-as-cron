@@ -16,4 +16,4 @@ if [ "$#" -ne 2 ]; then
 fi
 
 . "$1"
-exec /usr/bin/env -i "$SHELL" -c ". $1; $2"
+exec /usr/bin/env -i "$SHELL" -c "set -a; . $1; set +a; $2"
