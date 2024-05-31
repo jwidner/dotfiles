@@ -75,5 +75,6 @@ endif
 if has('syntax') && has('eval')
   packadd! matchit
 endif
+packadd! editorconfig
 
 set belloff=all
