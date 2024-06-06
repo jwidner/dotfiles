@@ -69,6 +69,7 @@ export LESS+='-Q'  # turn off bell
 export LESS+='-R'
 export LESS+='-F'
 export PAGER="less"
+export MANPAGER="less -+F +Gg"
 export GROFF_NO_SGR=1
 
 # Color setup for ls
