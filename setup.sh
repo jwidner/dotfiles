@@ -15,6 +15,7 @@ PLUGIN_BASEDIR="${HOME}/.vim/pack/default/start"
 for PLUGIN in \
     "https://tpope.io/vim/commentary.git" \
     "https://tpope.io/vim/fugitive.git" \
+    "https://github.com/shumphrey/fugitive-gitlab.vim.git" \
     "https://github.com/junegunn/fzf.git" \
     "https://github.com/junegunn/fzf.vim.git" \
     "https://github.com/morhetz/gruvbox.git"
