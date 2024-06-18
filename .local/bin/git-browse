@@ -1,6 +1,13 @@
 #!/bin/bash
-URL=$(git remote --verbose \
-    | head -1 \
-    | tr ':' '/' \
-    | sed -En 's|.*git@(.*)\.git.*|https://\1|p')
-open "${URL}"
+set -euo pipefail
+remote=$(git remote get-url origin)
+
+url=$(sed -En 's|(.*)\.git$|\1|p' <<<"${remote}")
+if ! grep -q '^http' <<<"${url}"; then
+    url=$(<<<"${url}" \
+        tr ':' '/' \
+        | sed -En 's|.*@(.*)|https://\1|p' \
+    )
+fi
+
+open "${url}"
