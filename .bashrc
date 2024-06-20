@@ -82,12 +82,12 @@ if [[ "$TERM" != dumb ]]; then
     alias la="command ls -la ${ls_options:+${ls_options[*]}}"
     alias ll="command ls -l ${ls_options:+${ls_options[*]}}"
     alias lh="command ls -hAl ${ls_options:+${ls_options[*]}}"
-    alias l="command ls -l ${ls_options:+${ls_options[*]}}"
+    alias l="command ls -lh ${ls_options:+${ls_options[*]}}"
 else
     alias la='command ls -la'
     alias ll='command ls -l'
     alias lh='command ls -hAl'
-    alias l='command ls -l'
+    alias l='command ls -lh'
 fi
 
 # Color setup for grep
