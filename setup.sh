@@ -2,7 +2,16 @@
 set -eu
 dir=$(dirname "$0")
 
-( cd "$dir"; git submodule update --init )
+( cd "${dir}"; git submodule update --init )
+
+if ! stow \
+    -d "${dir}" \
+    -t "${HOME}" \
+    .
+then
+    echo >&2 "if stow conflicts, try \`stow --adopt .\`"
+    exit 1
+fi
 
 # Vim setup
 vim_dirs="\

@@ -1,7 +1,6 @@
 # Summary
 
-1. `./setup.sh`
-2. `stow .`
+`./setup.sh`
 
 # Manual Setup
 
