@@ -19,3 +19,6 @@
 [submodule ".vim/pack/default/start/fzf.vim"]
 	path = .vim/pack/default/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
+[submodule ".vim/pack/default/start/tabular"]
+	path = .vim/pack/default/start/tabular
+	url = https://github.com/godlygeek/tabular.git
