@@ -1,5 +1,8 @@
 #!/bin/sh
 set -eu
+dir=$(dirname "$0")
+
+( cd "$dir"; git submodule update --init )
 
 # Vim setup
 vim_dirs="\

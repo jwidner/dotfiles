@@ -1,8 +1,7 @@
 # Summary
 
-1. `git submodule update --init`
-2. `./setup.sh`
-3. `stow .`
+1. `./setup.sh`
+2. `stow .`
 
 # Manual Setup
 
