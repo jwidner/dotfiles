@@ -78,3 +78,7 @@ endif
 packadd! editorconfig
 
 set belloff=all
+
+" python settings
+let g:python_indent = {}
+let g:python_indent.open_paren = 'shiftwidth()'
