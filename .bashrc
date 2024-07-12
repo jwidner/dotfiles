@@ -109,7 +109,7 @@ current_branch() {
         || [ -z "${branch}" ]; then
         return 0
     fi
-    branch=$(echo "$branch" | sed -E 's/(.{8}).*/\1.../')
+    branch=$(echo "$branch" | sed -E 's/(.{11}).*/\1/')
     echo " $branch"
 }
 
