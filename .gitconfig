@@ -13,6 +13,7 @@
     ca = commit -a
     b = branch
     sw = switch
+    pushfl = push --force-with-lease
 [init]
     defaultBranch = main
 [diff]
