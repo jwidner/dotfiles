@@ -22,6 +22,9 @@ ${HOME}/.vim/backup \
 mkdir -p "${vim_dirs}"
 chmod 700 "${vim_dirs}"
 
+# setup vim fzf
+vim -c 'call fzf#install()' -c q
+
 # setup vim plugin docs
 find -H "${HOME}/.vim/pack/default/start" \
     -type d \
