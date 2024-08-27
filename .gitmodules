@@ -22,3 +22,6 @@
 [submodule ".vim/pack/default/start/tabular"]
 	path = .vim/pack/default/start/tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule ".vim/pack/default/start/surround"]
+	path = .vim/pack/default/start/surround
+	url = https://github.com/tpope/vim-surround.git
