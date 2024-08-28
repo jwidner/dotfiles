@@ -30,6 +30,7 @@ let maplocalleader = "\\"
 
 " toggles buffers
 nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>g :GFiles<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>t :Tags<CR>
 nnoremap <Leader>? :History<CR>
