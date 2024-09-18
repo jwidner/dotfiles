@@ -65,6 +65,14 @@ nnoremap <silent>]q :cnext<CR>
 nnoremap <silent>[Q :cfirst<CR>
 nnoremap <silent>]Q :clast<CR>
 
+" center scrolling
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+" center searches
+nnoremap n nzzzv
+nnoremap N Nzzzv
+cnoremap <expr> <CR> getcmdtype() =~ '[/?]' ? '<CR>zz' : '<CR>'
+
 if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
