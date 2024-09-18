@@ -71,7 +71,12 @@ nnoremap <C-u> <C-u>zz
 " center searches
 nnoremap n nzzzv
 nnoremap N Nzzzv
+nnoremap * *zzzv
+nnoremap # #zzzv
 cnoremap <expr> <CR> getcmdtype() =~ '[/?]' ? '<CR>zz' : '<CR>'
+" center jumps
+nnoremap <C-o> <C-o>zz
+nnoremap <C-i> <C-i>zz
 
 if &t_Co > 2 || has("gui_running")
   set hlsearch
