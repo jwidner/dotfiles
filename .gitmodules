@@ -25,3 +25,6 @@
 [submodule ".vim/pack/default/start/surround"]
 	path = .vim/pack/default/start/surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule ".vim/pack/default/start/vim-indent-object"]
+	path = .vim/pack/default/start/vim-indent-object
+	url = https://github.com/michaeljsmith/vim-indent-object.git
