@@ -78,6 +78,9 @@ cnoremap <expr> <CR> getcmdtype() =~ '[/?]' ? '<CR>zz' : '<CR>'
 nnoremap <C-o> <C-o>zz
 nnoremap <C-i> <C-i>zz
 
+" paste without clobbering the delete registers
+xnoremap <leader>p "_dP
+
 if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
