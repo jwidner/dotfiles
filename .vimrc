@@ -16,7 +16,7 @@ let g:slime_target = "vimterminal"
 set modelines=0
 set nomodeline
 set number relativenumber
-set scrolloff=0  " no margins/padding when scrolling
+set scrolloff=8
 set shortmess-=S  " display search match count [1/n]
 
 if system('uname -s') == "Darwin\n"
