@@ -103,6 +103,7 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
+# Git stuff
 current_branch() {
     if ! branch=$(git branch --show-current \
                              --no-color 2>/dev/null) \
@@ -111,6 +112,17 @@ current_branch() {
     fi
     branch=$(echo "$branch" | sed -E 's/(.{11}).*/\1/')
     echo " $branch"
+}
+
+# Handle aliases which cannot be handled by `git` aliases.
+git() {
+    # TODO: better parsing
+    if [ "$1" = "stash" ] && [ "$2" = "ls" ]; then
+        shift 2
+        command git stash list "$@"
+        return
+    fi
+    command git "$@"
 }
 
 PS1='[\[$red\]\u\[$reset\]@\[$green\]\h \[$blue\]\W\[$yellow\]$(current_branch)\[$reset\]]\$ '
