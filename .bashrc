@@ -124,6 +124,7 @@ git() {
     fi
     command git "$@"
 }
+alias ggrep='git grep'
 
 PS1='[\[$red\]\u\[$reset\]@\[$green\]\h \[$blue\]\W\[$yellow\]$(current_branch)\[$reset\]]\$ '
 stty -ixon
