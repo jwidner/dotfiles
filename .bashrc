@@ -241,5 +241,5 @@ alias cv='config vim'
 alias cs='config bash'
 alias rot13="tr 'a-zA-Z' 'n-za-mN-ZA-M'"
 alias resource=". $HOME/.bashrc"
-alias sudoe="sudo env \"PATH=\$PATH\""
+alias sudoenv="sudo env \"PATH=\$PATH\""
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
