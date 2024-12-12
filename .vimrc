@@ -84,6 +84,9 @@ xnoremap <leader>p "_dP
 " yank file path
 nnoremap yp :let @+ = expand("%")<CR>
 
+" yank file name
+nnoremap yf :let @+ = expand("%:t")<CR>
+
 if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
