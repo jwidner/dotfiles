@@ -81,6 +81,9 @@ nnoremap <C-i> <C-i>zz
 " paste without clobbering the delete registers
 xnoremap <leader>p "_dP
 
+" yank file path
+nnoremap yp :let @+ = expand("%")<CR>
+
 if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
