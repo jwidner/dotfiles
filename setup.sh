@@ -28,13 +28,14 @@ case "$(uname)" in
 esac
 
 # Vim setup
-vim_dirs="\
-${HOME}/.vim/swap \
-${HOME}/.vim/undo \
-${HOME}/.vim/backup \
-"
-mkdir -p "${vim_dirs}"
-chmod 700 "${vim_dirs}"
+for vim_dir in \
+    "${HOME}/.vim/swap" \
+    "${HOME}/.vim/undo" \
+    "${HOME}/.vim/backup";
+do
+    mkdir -p "${vim_dir}"
+    chmod 700 "${vim_dir}"
+done
 
 # setup vim fzf
 vim -c 'call fzf#install()' -c q
