@@ -4,14 +4,10 @@ dir=$(dirname "$0")
 
 ( cd "${dir}"; git submodule update --init )
 
-if ! stow \
-    -d "${dir}" \
+stow \
+    -d "${dir}/common" \
     -t "${HOME}" \
     .
-then
-    echo >&2 "if stow conflicts, try \`stow --adopt .\`"
-    exit 1
-fi
 
 # Vim setup
 vim_dirs="\

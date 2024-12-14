@@ -1,30 +1,30 @@
 [submodule ".vim/pack/default/start/commentary"]
-	path = .vim/pack/default/start/commentary
+	path = common/.vim/pack/default/start/commentary
 	url = https://tpope.io/vim/commentary.git
 [submodule ".vim/pack/default/start/fugitive"]
-	path = .vim/pack/default/start/fugitive
+	path = common/.vim/pack/default/start/fugitive
 	url = https://tpope.io/vim/fugitive.git
 [submodule ".vim/pack/default/start/fugitive-gitlab"]
-	path = .vim/pack/default/start/fugitive-gitlab
+	path = common/.vim/pack/default/start/fugitive-gitlab
 	url = https://github.com/shumphrey/fugitive-gitlab.vim.git
 [submodule ".vim/pack/default/start/coc"]
-	path = .vim/pack/default/start/coc
+	path = common/.vim/pack/default/start/coc
 	url = https://github.com/neoclide/coc.nvim.git
 [submodule ".tmux/tmux-resurrect"]
-	path = .tmux/tmux-resurrect
+	path = common/.tmux/tmux-resurrect
 	url = https://github.com/tmux-plugins/tmux-resurrect
 [submodule ".vim/pack/default/start/fzf"]
-	path = .vim/pack/default/start/fzf
+	path = common/.vim/pack/default/start/fzf
 	url = https://github.com/junegunn/fzf.git
 [submodule ".vim/pack/default/start/fzf.vim"]
-	path = .vim/pack/default/start/fzf.vim
+	path = common/.vim/pack/default/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
 [submodule ".vim/pack/default/start/tabular"]
-	path = .vim/pack/default/start/tabular
+	path = common/.vim/pack/default/start/tabular
 	url = https://github.com/godlygeek/tabular.git
 [submodule ".vim/pack/default/start/surround"]
-	path = .vim/pack/default/start/surround
+	path = common/.vim/pack/default/start/surround
 	url = https://github.com/tpope/vim-surround.git
 [submodule ".vim/pack/default/start/vim-indent-object"]
-	path = .vim/pack/default/start/vim-indent-object
+	path = common/.vim/pack/default/start/vim-indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object.git
