@@ -9,6 +9,24 @@ stow \
     -t "${HOME}" \
     .
 
+case "$(uname)" in
+    Linux)
+        stow \
+            -d "${dir}/linux" \
+            -t "${HOME}" \
+            .
+        ;;
+    Darwin)
+        stow \
+            -d "${dir}/macos" \
+            -t "${HOME}" \
+            .
+        ;;
+    *)
+        echo >&2 "$0: unsupported OS: $(uname)"
+        ;;
+esac
+
 # Vim setup
 vim_dirs="\
 ${HOME}/.vim/swap \

@@ -7,6 +7,5 @@ import = [
 option_as_alt = "OnlyLeft"
 
 [font]
-# TODO: separate configuration per OS
 normal = { family = "Monaco", style = "Regular" }
 size = 16
