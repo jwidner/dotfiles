@@ -3,6 +3,11 @@ import = [
     "themes/solarized_light.toml",
 ]
 
+[keyboard]
+bindings = [
+    { "key" = "F11", "action" = "ToggleFullscreen" },
+]
+
 [window]
 option_as_alt = "OnlyLeft"
 

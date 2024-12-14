@@ -3,5 +3,10 @@ import = [
     "themes/solarized_light.toml",
 ]
 
+[keyboard]
+bindings = [
+    { "key" = "F11", "action" = "ToggleFullscreen" },
+]
+
 [font]
 size = 22
