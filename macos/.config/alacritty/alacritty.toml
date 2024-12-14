@@ -9,6 +9,7 @@ bindings = [
 ]
 
 [window]
+decorations = "None"
 option_as_alt = "OnlyLeft"
 
 [font]

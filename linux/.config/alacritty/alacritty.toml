@@ -3,6 +3,9 @@ import = [
     "themes/solarized_light.toml",
 ]
 
+[window]
+decorations = "None"
+
 [keyboard]
 bindings = [
     { "key" = "F11", "action" = "ToggleFullscreen" },
