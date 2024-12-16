@@ -221,9 +221,11 @@ manbsd() {
 }
 
 if command -v wl-copy >/dev/null; then
-    alias copy='command wl-copy'
+    export CLIPBOARD='wl-copy'
+elif command -v xclip >/dev/null; then
+    export CLIPBOARD='xclip'
 elif command -v pbcopy >/dev/null; then
-    alias copy='command pbcopy'
+    export CLIPBOARD='pbcopy'
 fi
 
 DOT_FILES="$HOME/dotfiles"

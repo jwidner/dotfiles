@@ -6,6 +6,7 @@
     diffFilter = diff-highlight
 [alias]
     lol = log --graph --oneline --decorate --color --all
+    cb = copy-branch
     co = checkout
     ci = commit
     st = status
