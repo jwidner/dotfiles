@@ -3,9 +3,6 @@ import = [
     "themes/solarized_light.toml",
 ]
 
-[window]
-decorations = "None"
-
 [keyboard]
 bindings = [
     { "key" = "F11", "action" = "ToggleFullscreen" },
@@ -13,3 +10,7 @@ bindings = [
 
 [font]
 size = 22
+
+[window]
+decorations = "None"
+startup_mode = "Maximized"

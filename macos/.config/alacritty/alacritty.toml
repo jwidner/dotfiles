@@ -8,10 +8,10 @@ bindings = [
     { "key" = "F11", "action" = "ToggleFullscreen" },
 ]
 
-[window]
-decorations = "None"
-option_as_alt = "OnlyLeft"
-
 [font]
 normal = { family = "Monaco", style = "Regular" }
 size = 16
+
+[window]
+option_as_alt = "OnlyLeft"
+startup_mode = "Fullscreen"
