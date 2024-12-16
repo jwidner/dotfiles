@@ -6,12 +6,27 @@
 
 ## Git
 
+### Local Configuration
+
 Create `~/.gitconfig.local` and add:
 
 ```
 [user]
     email = "<EMAIL>"
 ```
+
+### diff-highlight
+
+`diff-highlight` must be added to $PATH. It is shipped with `git`, but
+different distros package this plugin differently.
+
+Fedora:
+
+`rpm -ql git | grep diff-highlight`
+
+Debian:
+
+`dpkg -L git | grep diff-highlight`
 
 ## fugitive-gitlab.vim
 
