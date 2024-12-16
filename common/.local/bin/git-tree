@@ -1,2 +1,2 @@
 #!/bin/bash
-git ls-files "${@}" | tree --fromfile .
+git ls-files "${@}" | tree -a --fromfile .
