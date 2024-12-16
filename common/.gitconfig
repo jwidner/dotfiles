@@ -23,3 +23,5 @@
 [core]
     hooksPath = ~/.git-hooks
     pager = diff-highlight | $PAGER
+[log]
+    follow = true
