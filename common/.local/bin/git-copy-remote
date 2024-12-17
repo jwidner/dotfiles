@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+NAME=$(basename "$0")
+
+remote=origin
+if [ "$#" -eq 1 ]; then
+    remote="$1"
+elif [ "$#" -gt 1 ]; then
+    echo >&2 "Usage: $NAME [remote]"
+    exit 1
+fi
+remote_url=$(git remote get-url "$remote")
+echo -n "$remote_url" | $CLIPBOARD
