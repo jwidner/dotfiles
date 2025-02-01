@@ -236,6 +236,7 @@ config () {
         $EDITOR "$DOT_FILES/.bashrc"
     fi
 }
+alias archive='command wget -mkEp'
 alias xargs='command xargs '
 alias hist='command history'
 alias diff='command diff --color'
