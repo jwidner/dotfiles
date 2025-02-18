@@ -98,7 +98,9 @@ endif
 if has('syntax') && has('eval')
   packadd! matchit
 endif
-packadd! editorconfig
+if version >= 901
+  packadd! editorconfig
+endif
 
 set belloff=all
 
