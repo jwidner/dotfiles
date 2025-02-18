@@ -9,7 +9,7 @@ bindings = [
 ]
 
 [font]
-size = 22
+size = 16
 
 [window]
 decorations = "None"
