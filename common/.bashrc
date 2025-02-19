@@ -8,6 +8,8 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+export PATH="$HOME/.local/bin:$PATH"
+
 if [ "$(uname)" = 'Linux' ]; then
     open() { xdg-open "${@}"; }
     export -f open
@@ -147,10 +149,6 @@ if command -v pyenv >/dev/null; then
     export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
 fi
-
-# home/bin
-export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
 
 # notes setup
 export NOTES_FILE="$HOME/.notes"
