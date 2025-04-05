@@ -1,3 +1,7 @@
 {
-    "inlayHint.display": false
+    "inlayHint.display": false,
+    "zig.enabled": true,
+    "zig.startUpMessage": true,
+    "zig.path": "zls",
+    "zig.debugLog": false
 }
