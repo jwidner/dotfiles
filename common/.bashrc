@@ -234,7 +234,12 @@ config () {
         $EDITOR "$DOT_FILES/.bashrc"
     fi
 }
-alias archive='command wget -mkEp'
+alias archive='command wget \
+    --mirror \
+    --convert-links \
+    --adjust-extension \
+    --page-requisites \
+    --no-parent'
 alias xargs='command xargs '
 alias hist='command history'
 alias diff='command diff --color'
