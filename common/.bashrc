@@ -248,6 +248,7 @@ alias cs='config bash'
 alias rot13="tr 'a-zA-Z' 'n-za-mN-ZA-M'"
 alias resource=". $HOME/.bashrc"
 alias sudoenv="sudo env \"PATH=\$PATH\""
+alias tmpd='cd "$(mktemp -d)"'
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 [ -z "$TMUX" ] && tmux new-session -A -s main
