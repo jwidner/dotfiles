@@ -107,3 +107,6 @@ set belloff=all
 " python settings
 let g:python_indent = {}
 let g:python_indent.open_paren = 'shiftwidth()'
+
+" templates
+autocmd BufNewFile  main.c,test.c	0r ~/.vim/templates/skeleton.c
