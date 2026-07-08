@@ -251,4 +251,4 @@ alias sudoenv="sudo env \"PATH=\$PATH\""
 alias tmpd='cd "$(mktemp -d)"'
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
-[ -z "$TMUX" ] && tmux new-session -A -s main
+[ -z "$TMUX" ] && command -v tmux >/dev/null && tmux new-session -A -s main
