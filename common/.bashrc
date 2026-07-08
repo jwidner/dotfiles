@@ -13,7 +13,6 @@ export PATH="$HOME/.local/bin:$PATH"
 if [ "$(uname)" = 'Linux' ]; then
     open() { xdg-open "${@}"; }
     export -f open
-    export BROWSER='firefox'
 elif [ "$(uname)" = 'Darwin' ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
     export PATH="$PATH:/opt/homebrew/opt/coreutils/libexec/gnubin"
@@ -22,7 +21,6 @@ elif [ "$(uname)" = 'Darwin' ]; then
     export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
     # python -> python3, pip -> pip3, etc.
     export PATH="/opt/homebrew/opt/python3/libexec/bin:$PATH"
-    export BROWSER='open -a firefox'
     GIT_COMPLETION_PATH="/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash"
     if [ -f "${GIT_COMPLETION_PATH}" ]; then
         . "${GIT_COMPLETION_PATH}"
