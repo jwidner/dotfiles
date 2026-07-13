@@ -5,27 +5,9 @@ dir=$(dirname "$0")
 ( cd "${dir}"; git submodule update --init )
 
 stow \
-    -d "${dir}/common" \
+    -d "${dir}" \
     -t "${HOME}" \
     .
-
-case "$(uname)" in
-    Linux)
-        stow \
-            -d "${dir}/linux" \
-            -t "${HOME}" \
-            .
-        ;;
-    Darwin)
-        stow \
-            -d "${dir}/macos" \
-            -t "${HOME}" \
-            .
-        ;;
-    *)
-        echo >&2 "$0: unsupported OS: $(uname)"
-        ;;
-esac
 
 # Vim setup
 for vim_dir in \
