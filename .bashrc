@@ -130,12 +130,19 @@ alias ggrep='git grep'
 
 # Prevent `make` fork bombs on large projects...
 make() {
+    local prev
     for arg in "$@"; do
-        if [[ "$arg" == "-j" ]]; then
-            echo >&2 "Error: don't use plain '-j'. Use '-jN' or '-j\$(nproc)' instead."
+        if [[ "$prev" == "-j" && ! "$arg" =~ ^[0-9]+$ ]]; then
+            echo >&2 "Error: don't use plain '-j'. Use '-jN', '-j N', or '-j\$(nproc)' instead."
             return 1
         fi
+        prev="$arg"
     done
+
+    if [[ "$arg" == "-j" ]]; then
+        echo >&2 "Error: don't use plain '-j'. Use '-jN', '-j N', or '-j\$(nproc)' instead."
+        return 1
+    fi
     command make "$@"
 }
 
