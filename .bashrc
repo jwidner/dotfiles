@@ -149,8 +149,7 @@ make() {
 PS1='[\[$red\]\u\[$reset\]@\[$green\]\h \[$blue\]\W\[$yellow\]$(current_branch)\[$reset\]]\$ '
 stty -ixon
 
-[ -f /usr/share/fzf/shell/key-bindings.bash ] && . /usr/share/fzf/shell/key-bindings.bash
-[ -f ~/.fzf.bash ] && . ~/.fzf.bash
+eval "$(fzf --bash)"
 export FZF_DEFAULT_COMMAND="find . -type f ! -path '*/.git/*'"
 
 # setup golang
