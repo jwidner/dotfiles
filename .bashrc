@@ -149,6 +149,8 @@ make() {
 PS1='[\[$red\]\u\[$reset\]@\[$green\]\h \[$blue\]\W\[$yellow\]$(current_branch)\[$reset\]]\$ '
 stty -ixon
 
+# set up fzf
+export PATH="$HOME/.fzf/bin:$PATH"
 eval "$(fzf --bash)"
 export FZF_DEFAULT_COMMAND="find . -type f ! -path '*/.git/*'"
 
