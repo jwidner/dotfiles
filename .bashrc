@@ -149,6 +149,10 @@ make() {
 PS1='[\[$red\]\u\[$reset\]@\[$green\]\h \[$blue\]\W\[$yellow\]$(current_branch)\[$reset\]]\$ '
 stty -ixon
 
+# set up mosh
+# In order to escape mosh, press <Enter> ].
+export MOSH_ESCAPE_KEY=]
+
 # set up fzf
 export PATH="$HOME/.fzf/bin:$PATH"
 eval "$(fzf --bash)"
