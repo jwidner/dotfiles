@@ -76,7 +76,7 @@ export GROFF_NO_SGR=1
 
 # Color setup for ls
 eval $(dircolors -b)
-ls_options="--color=auto -v"
+ls_options="--color=auto -F -v"
 
 # Setup ls/la/ll/lh/l
 if [[ "$TERM" != dumb ]]; then
