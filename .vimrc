@@ -64,6 +64,8 @@ nnoremap <silent>[q :cprevious<CR>
 nnoremap <silent>]q :cnext<CR>
 nnoremap <silent>[Q :cfirst<CR>
 nnoremap <silent>]Q :clast<CR>
+" accept "file:lineno" as a format for manual qfix lists
+set errorformat+=%f:%l
 
 " center scrolling
 nnoremap <C-d> <C-d>zz
