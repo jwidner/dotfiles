@@ -112,3 +112,18 @@ let g:python_indent.open_paren = 'shiftwidth()'
 
 " templates
 autocmd BufNewFile  main.c,test.c	0r ~/.vim/templates/skeleton.c
+
+" plugins
+call plug#begin()
+
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'godlygeek/tabular'
+Plug 'michaeljsmith/vim-indent-object'
+
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+call plug#end()

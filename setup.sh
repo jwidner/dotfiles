@@ -19,11 +19,7 @@ do
     chmod 700 "${vim_dir}"
 done
 
-# setup vim fzf
-vim -c 'call fzf#install()' -c q
-
-# setup vim plugin docs
-find -H "${HOME}/.vim/pack/default/start" \
-    -type d \
-    -name 'doc' \
-    -exec vim -u NONE -c 'helptags {}' -c q \;
+# Set up vim plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim -c 'PlugInstall' -c qa
