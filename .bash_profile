@@ -3,4 +3,6 @@
 export WEBKIT_DISABLE_DMABUF_RENDERER=1
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+[ -f "$HOME/.bash_profile.local" ] && . "$HOME/.bash_profile.local"
 . "$HOME/.bashrc"
