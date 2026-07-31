@@ -16,7 +16,7 @@ let g:slime_target = "vimterminal"
 set modelines=0
 set nomodeline
 set number relativenumber
-set scrolloff=8
+set scrolloff=0  " no margins/padding when scrolling
 set shortmess-=S  " display search match count [1/n]
 
 if system('uname -s') == "Darwin\n"
@@ -66,19 +66,6 @@ nnoremap <silent>[Q :cfirst<CR>
 nnoremap <silent>]Q :clast<CR>
 " accept "file:lineno" as a format for manual qfix lists
 set errorformat+=%f:%l
-
-" center scrolling
-nnoremap <C-d> <C-d>zz
-nnoremap <C-u> <C-u>zz
-" center searches
-nnoremap n nzzzv
-nnoremap N Nzzzv
-nnoremap * *zzzv
-nnoremap # #zzzv
-cnoremap <expr> <CR> getcmdtype() =~ '[/?]' ? '<CR>zz' : '<CR>'
-" center jumps
-nnoremap <C-o> <C-o>zz
-nnoremap <C-i> <C-i>zz
 
 " paste without clobbering the delete registers
 xnoremap <leader>p "_dP
