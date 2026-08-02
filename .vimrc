@@ -145,3 +145,5 @@ if !exists('*ResourceMyVimrc')
     source $MYVIMRC
   endfunction
 endif
+
+command! Resource call ResourceMyVimrc()
