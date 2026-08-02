@@ -114,3 +114,34 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
+
+function! OpenDailyFile()
+  let year  = strftime('%Y')
+  let month = strftime('%m')
+  let day   = strftime('%d')
+
+  let dir = year . '/' . month
+  let file = dir . '/' . day
+
+  call mkdir(dir, 'p')
+  let is_new_file = !filereadable(file)
+
+  " Open the file (creates it on write if it doesn't exist).
+  execute 'edit' fnameescape(file)
+  if is_new_file
+    call append(0, [
+          \ 'Notes for ' . strftime('%a ') . strftime('%Y-%m-%d'),
+          \ '========================',
+          \ ''
+          \ ])
+  endif
+  setlocal filetype=markdown
+endfunction
+
+command! Daily call OpenDailyFile()
+
+if !exists('*ResourceMyVimrc')
+  function! ResourceMyVimrc()
+    source $MYVIMRC
+  endfunction
+endif
