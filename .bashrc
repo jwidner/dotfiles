@@ -257,6 +257,9 @@ config () {
         $EDITOR "$DOT_FILES/.bashrc"
     fi
 }
+
+alias df='command df -h'
+
 alias archive='command wget \
     --mirror \
     --convert-links \
