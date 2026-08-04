@@ -19,10 +19,12 @@ set number relativenumber
 set scrolloff=0  " no margins/padding when scrolling
 set shortmess-=S  " display search match count [1/n]
 
-if system('uname -s') == "Darwin\n"
-  set clipboard=unnamed "OSX
+" System-agnostic setting making the unnamed clipboard register act like
+" clipboard in any other editor. <https://news.ycombinator.com/item?id=40388040>
+if has('unnamedplus')
+  set clipboard=unnamedplus,unnamed
 else
-  set clipboard=unnamedplus "Linux
+  set clipboard+=unnamed
 endif
 
 let mapleader = "\<Space>"
