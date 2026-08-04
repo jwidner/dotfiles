@@ -6,6 +6,8 @@ vim.opt.packpath = vim.opt.runtimepath:get()
 vim.cmd.source(vim.fn.expand("~/.vimrc"))
 
 vim.pack.add({
+    'https://github.com/shaunsingh/solarized.nvim',
+
     'https://github.com/tpope/vim-commentary',
     'https://github.com/tpope/vim-surround',
     'https://github.com/godlygeek/tabular',
@@ -21,3 +23,5 @@ vim.pack.add({
     },
 
 })
+
+require('solarized').set()
