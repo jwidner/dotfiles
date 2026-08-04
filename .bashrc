@@ -54,15 +54,22 @@ HISTTIMEFORMAT="%FT%T%z "
 shopt -s histappend
 
 # vim setup
+if command -v nvim >/dev/null; then
+    export EDITOR=nvim
+    export VISUAL=nvim
+    VIM=nvim
+fi
 if command -v vimx >/dev/null; then
-    export EDITOR=vimx  # vimx for clipboard support on Linux
-    export VISUAL=vimx
+    [ -z "$EDITOR" ] && export EDITOR=vimx  # vimx for clipboard support on Linux
+    [ -z "$VISUAL" ] && export VISUAL=vimx
+    VIM=vimx
 else
-    export EDITOR=vim
-    export VISUAL=vim
+    [ -z "$EDITOR" ] && export EDITOR=vim
+    [ -z "$VISUAL" ] && export VISUAL=vim
+    VIM=vim
 fi
 alias v="command $EDITOR"
-alias vim="command $EDITOR"
+alias vim="command $VIM"
 
 # less/man settings
 export LESS+='-M'

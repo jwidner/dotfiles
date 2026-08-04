@@ -55,9 +55,6 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
-" clear search highlighting & popups with esc
-nnoremap <silent><esc> :noh<CR>:call popup_clear()<CR><esc>
-
 " buffer next/prev
 nnoremap <silent>]b :bnext<CR>
 nnoremap <silent>[b :bprevious<CR>
@@ -149,3 +146,10 @@ if !exists('*ResourceMyVimrc')
 endif
 
 command! Resource call ResourceMyVimrc()
+
+if !has('nvim')
+  " clear search highlighting & popups with esc
+  nnoremap <silent><esc> :noh<CR>:call popup_clear()<CR><esc>
+else
+  nnoremap <silent><esc> :noh<CR><esc>
+endif
