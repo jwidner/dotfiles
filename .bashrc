@@ -51,7 +51,12 @@ export HISTFILESIZE=unlimited
 # timestamp history
 HISTTIMEFORMAT="%FT%T%z "
 
+shopt -s autocd
+shopt -s checkhash
+shopt -s checkjobs
 shopt -s histappend
+shopt -s globstar
+shopt -s progcomp_alias  # doesn't seem to work...
 
 # vim setup
 if command -v nvim >/dev/null; then
