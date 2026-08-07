@@ -70,7 +70,7 @@ set errorformat+=%f:%l
 xnoremap <leader>p "_dP
 
 " yank file path
-nnoremap yp :let @+ = expand("%")<CR>
+nnoremap yp :let @+ = expand("%:p:~")<CR>
 
 " yank file name
 nnoremap yf :let @+ = expand("%:t")<CR>
