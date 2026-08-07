@@ -89,6 +89,10 @@ export GROFF_NO_SGR=1
 # Color setup for ls
 eval $(dircolors -b)
 ls_options="--color=auto -F -v"
+if ls --group-directories-first &>/dev/null; then
+    ls_options+=" --group-directories-first"
+fi
+
 
 # Setup ls/la/ll/lh/l
 if [[ "$TERM" != dumb ]]; then
