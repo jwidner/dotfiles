@@ -16,8 +16,7 @@ vim.pack.add({
     'https://github.com/tpope/vim-fugitive',
     'https://github.com/lewis6991/gitsigns.nvim',
 
-    'https://github.com/junegunn/fzf',
-    'https://github.com/junegunn/fzf.vim',
+    'https://github.com/ibhagwan/fzf-lua',
 
     {
         src = 'https://github.com/neoclide/coc.nvim',
@@ -29,3 +28,18 @@ vim.pack.add({
 
 require('solarized').set()
 require('gitsigns').setup {}
+require('fzf-lua').setup {
+    grep = {
+        rg_opts = "--hidden --column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
+    },
+}
+
+-- keybindings
+--
+-- fzf-lua
+vim.keymap.set('n', '<Leader>f', FzfLua.files)
+vim.keymap.set('n', '<Leader>g', FzfLua.git_files)
+vim.keymap.set('n', '<Leader>b', FzfLua.buffers)
+vim.keymap.set('n', '<Leader>t', FzfLua.tags)
+vim.keymap.set('n', '<Leader>?', FzfLua.history)
+vim.keymap.set('n', '<Leader>s', FzfLua.grep_project)
