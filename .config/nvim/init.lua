@@ -14,6 +14,8 @@ vim.pack.add({
     'https://github.com/michaeljsmith/vim-indent-object',
 
     'https://github.com/tpope/vim-fugitive',
+    'https://github.com/lewis6991/gitsigns.nvim',
+
     'https://github.com/junegunn/fzf',
     'https://github.com/junegunn/fzf.vim',
 
@@ -25,3 +27,4 @@ vim.pack.add({
 })
 
 require('solarized').set()
+require('gitsigns').setup {}
