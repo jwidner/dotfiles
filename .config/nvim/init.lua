@@ -23,6 +23,7 @@ vim.pack.add({
         src = 'https://github.com/neoclide/coc.nvim',
         version = 'release',
     },
+    'https://github.com/ludovicchabant/vim-gutentags',
 
 })
 

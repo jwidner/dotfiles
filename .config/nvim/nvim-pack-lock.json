@@ -33,6 +33,10 @@
       "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
       "src": "https://github.com/tpope/vim-fugitive"
     },
+    "vim-gutentags": {
+      "rev": "aa47c5e29c37c52176c44e61c780032dfacef3dd",
+      "src": "https://github.com/ludovicchabant/vim-gutentags"
+    },
     "vim-indent-object": {
       "rev": "8ab36d5ec2a3a60468437a95e142ce994df598c6",
       "src": "https://github.com/michaeljsmith/vim-indent-object"
