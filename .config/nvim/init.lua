@@ -18,11 +18,8 @@ vim.pack.add({
 
     'https://github.com/ibhagwan/fzf-lua',
 
-    {
-        src = 'https://github.com/neoclide/coc.nvim',
-        version = 'release',
-    },
     'https://github.com/ludovicchabant/vim-gutentags',
+    'https://github.com/neovim/nvim-lspconfig',
 
 })
 
@@ -43,3 +40,24 @@ vim.keymap.set('n', '<Leader>b', FzfLua.buffers)
 vim.keymap.set('n', '<Leader>t', FzfLua.tags)
 vim.keymap.set('n', '<Leader>?', FzfLua.history)
 vim.keymap.set('n', '<Leader>s', FzfLua.grep_project)
+
+-- lsp
+--
+-- navigation
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
+vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition)
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
+vim.keymap.set('n', 'gr', vim.lsp.buf.references)
+
+-- diagnostics
+vim.keymap.set('n', '[g', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic' })
+vim.keymap.set('n', ']g', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic' })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show line diagnostics' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+
+-- lsp servers
+--
+-- <https://microsoft.github.io/language-server-protocol/implementors/servers/>
+vim.lsp.enable('clangd')

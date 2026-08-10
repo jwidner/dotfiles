@@ -1,10 +1,5 @@
 {
   "plugins": {
-    "coc.nvim": {
-      "rev": "2abe7008bd992897c89e9b95750fa954b070d784",
-      "src": "https://github.com/neoclide/coc.nvim",
-      "version": "'release'"
-    },
     "fzf-lua": {
       "rev": "8671012a7b2a1648595952c655039d51fb301c14",
       "src": "https://github.com/ibhagwan/fzf-lua"
@@ -12,6 +7,10 @@
     "gitsigns.nvim": {
       "rev": "31d6fb2d618bca1482b9f274751ead5f03461408",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
+    "nvim-lspconfig": {
+      "rev": "43ed3797b266e1ee8d222e491379ad471c9d3146",
+      "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "solarized.nvim": {
       "rev": "fe02ed49cc017cc93657bd6306a2624394611c69",
