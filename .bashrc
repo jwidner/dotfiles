@@ -172,6 +172,7 @@ export MOSH_ESCAPE_KEY=]
 # set up fzf
 export PATH="$HOME/.fzf/bin:$PATH"
 eval "$(fzf --bash)"
+[ -s "$HOME/.fzf.git" ] && . "$HOME/.fzf.git"
 export FZF_DEFAULT_COMMAND="find . -type f ! -path '*/.git/*'"
 
 # setup golang
