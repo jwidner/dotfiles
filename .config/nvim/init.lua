@@ -14,6 +14,7 @@ vim.pack.add({
     'https://github.com/michaeljsmith/vim-indent-object',
 
     'https://github.com/tpope/vim-fugitive',
+    'https://github.com/tpope/vim-rhubarb',  -- GitHub support for fugitive
     'https://github.com/lewis6991/gitsigns.nvim',
 
     'https://github.com/ibhagwan/fzf-lua',
