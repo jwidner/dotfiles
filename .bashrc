@@ -139,6 +139,18 @@ git() {
         shift 2
         command git stash list "$@"
         return
+    elif [ "$1" = "worktree" ] && [ "$2" = "ls" ]; then
+        shift 2
+        command git worktree list "$@"
+        return
+    elif [ "$1" = "worktree" ] && [ "$2" = "mv" ]; then
+        shift 2
+        command git worktree move "$@"
+        return
+    elif [ "$1" = "worktree" ] && [ "$2" = "rm" ]; then
+        shift 2
+        command git worktree remove "$@"
+        return
     fi
     command git "$@"
 }
