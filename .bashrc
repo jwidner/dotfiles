@@ -35,6 +35,15 @@ elif [ "$(uname)" = 'Darwin' ]; then
     path-prepend "/opt/homebrew/opt/make/libexec/gnubin"
     # python -> python3, pip -> pip3, etc.
     path-prepend "/opt/homebrew/opt/python3/libexec/bin"
+
+    # resolve symlinks to make `apropos` stop spewing garbage
+    export MANPATH="$(
+        manpath |
+        tr ':' '\n' |
+        xargs realpath |
+        paste -sd: -
+    )"
+
     GIT_COMPLETION_PATH="/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash"
     if [ -f "${GIT_COMPLETION_PATH}" ]; then
         . "${GIT_COMPLETION_PATH}"
