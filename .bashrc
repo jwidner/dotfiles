@@ -22,8 +22,6 @@ path-append()
 
 # config
 
-path-prepend "$HOME/.local/bin"
-
 if [ "$(uname)" = 'Linux' ]; then
     open() { xdg-open "${@}"; }
     export -f open
@@ -205,18 +203,22 @@ stty -ixon
 export MOSH_ESCAPE_KEY=]
 
 # set up fzf
-path-prepend "$HOME/.fzf/bin"
-eval "$(fzf --bash)"
+[ -d "$HOME/.fzf/bin" ] && path-prepend "$HOME/.fzf/bin"
+command -v fzf >/dev/null && eval "$(fzf --bash)"
 [ -s "$HOME/.fzf.git" ] && . "$HOME/.fzf.git"
 export FZF_DEFAULT_COMMAND="find . -type f ! -path '*/.git/*'"
 
 # setup golang
-export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
-path-append "$GOBIN"
+if command -v go >/dev/null; then
+    export GOPATH=$HOME/go
+    export GOBIN=$GOPATH/bin
+    path-append "$GOBIN"
+fi
 
 # setup zig
-path-append "$HOME/zig"
+if [ -d "$HOME/zig" ]; then
+    path-append "$HOME/zig"
+fi
 
 # setup pyenv
 if command -v pyenv >/dev/null; then
@@ -328,6 +330,7 @@ alias resource=". $HOME/.bashrc"
 alias sudoenv="sudo env \"PATH=\$PATH\""
 alias tmpd='cd "$(mktemp -d)"'
 
+path-prepend "$HOME/.local/bin"
 export PATH
 
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
