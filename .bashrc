@@ -8,19 +8,33 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-export PATH="$HOME/.local/bin:$PATH"
+# helper functions
+#
+path-prepend()
+{
+    [[ ":$PATH:" == *":$1:"* ]] || PATH="$1:$PATH"
+}
+
+path-append()
+{
+    [[ ":$PATH:" == *":$1:"* ]] || PATH="$PATH:$1"
+}
+
+# config
+
+path-prepend "$HOME/.local/bin"
 
 if [ "$(uname)" = 'Linux' ]; then
     open() { xdg-open "${@}"; }
     export -f open
 elif [ "$(uname)" = 'Darwin' ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
-    export PATH="$PATH:/opt/homebrew/opt/coreutils/libexec/gnubin"
+    path-append "/opt/homebrew/opt/coreutils/libexec/gnubin"
     # replace BSD tooling with GNU tooling
-    export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
-    export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+    path-prepend "/opt/homebrew/opt/gnu-sed/libexec/gnubin"
+    path-prepend "/opt/homebrew/opt/make/libexec/gnubin"
     # python -> python3, pip -> pip3, etc.
-    export PATH="/opt/homebrew/opt/python3/libexec/bin:$PATH"
+    path-prepend "/opt/homebrew/opt/python3/libexec/bin"
     GIT_COMPLETION_PATH="/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash"
     if [ -f "${GIT_COMPLETION_PATH}" ]; then
         . "${GIT_COMPLETION_PATH}"
@@ -182,7 +196,7 @@ stty -ixon
 export MOSH_ESCAPE_KEY=]
 
 # set up fzf
-export PATH="$HOME/.fzf/bin:$PATH"
+path-prepend "$HOME/.fzf/bin"
 eval "$(fzf --bash)"
 [ -s "$HOME/.fzf.git" ] && . "$HOME/.fzf.git"
 export FZF_DEFAULT_COMMAND="find . -type f ! -path '*/.git/*'"
@@ -190,15 +204,15 @@ export FZF_DEFAULT_COMMAND="find . -type f ! -path '*/.git/*'"
 # setup golang
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
-export PATH="$PATH:$GOBIN"
+path-append "$GOBIN"
 
 # setup zig
-export PATH="$PATH:$HOME/zig"
+path-append "$HOME/zig"
 
 # setup pyenv
 if command -v pyenv >/dev/null; then
     export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
+    path-prepend "$PYENV_ROOT/bin"
     eval "$(pyenv init -)"
 fi
 
@@ -304,6 +318,8 @@ alias rot13="tr 'a-zA-Z' 'n-za-mN-ZA-M'"
 alias resource=". $HOME/.bashrc"
 alias sudoenv="sudo env \"PATH=\$PATH\""
 alias tmpd='cd "$(mktemp -d)"'
+
+export PATH
 
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
