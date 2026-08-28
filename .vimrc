@@ -148,7 +148,10 @@ command! Resource call ResourceMyVimrc()
 
 if !has('nvim')
   " clear search highlighting & popups with esc
-  nnoremap <silent><esc> :noh<CR>:call popup_clear()<CR><esc>
+  augroup my_escape_mapping
+    autocmd!
+    autocmd InsertEnter * nnoremap <silent> <Esc> :nohlsearch<CR>:call popup_clear()<CR><Esc>
+  augroup END
 else
   nnoremap <silent><esc> :noh<CR><esc>
 endif
