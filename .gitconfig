@@ -18,6 +18,7 @@
     b = branch
     sw = switch
     pushfl = push --force-with-lease
+    fixes = show -s --pretty=format:\"Fixes: %h (\\\"%s\\\")\"
 [init]
     defaultBranch = main
 [diff]
