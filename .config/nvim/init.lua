@@ -61,3 +61,11 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 --
 -- <https://microsoft.github.io/language-server-protocol/implementors/servers/>
 vim.lsp.enable('clangd')
+
+-- Use C-style comments in C
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "c",
+  callback = function()
+    vim.bo.commentstring = "/* %s */"
+  end,
+})
