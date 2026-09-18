@@ -8,7 +8,6 @@ vim.cmd.source(vim.fn.expand("~/.vimrc"))
 vim.pack.add({
     'https://github.com/shaunsingh/solarized.nvim',
 
-    'https://github.com/tpope/vim-commentary',
     'https://github.com/tpope/vim-surround',
     'https://github.com/godlygeek/tabular',
     'https://github.com/michaeljsmith/vim-indent-object',
