@@ -312,6 +312,11 @@ config () {
     fi
 }
 
+# make lf switch directory on exit
+lf() {
+    cd "$(command lf -print-last-dir "$@")"
+}
+
 alias df='command df -h'
 
 alias archive='command wget \
